@@ -1,0 +1,28 @@
+// Fonts
+@import url('https://fonts.bunny.net/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import 'bootstrap/scss/bootstrap';
+
+// Fontawesome
+@import '@fortawesome/fontawesome-free/css/all.css';
+
+// Aplica bordes y sombras a las clase (.btn, .pagination .page-item .page-link, .card, .select2-selection)
+ input, select, textarea, .btn, .pagination .page-item .page-link, .card, .select2-selection {
+    border-radius: 20px !important;
+    box-shadow: var(--bs-box-shadow) !important;
+}
+
+// Poner de fondo una imagen en el sitio web
+body {
+    background-image: url('/public/img/textura-puntos-grises_1053-237.avif'); /* Ruta a tu imagen de textura */
+    background-size: cover; /* Ajusta la imagen al tamaño del contenedor */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat; /* No repite la imagen */
+    height: 100vh; /* Altura completa de la ventana */
+    margin: 0; /* Sin margen */
+    backdrop-filter: blur(10px);
+}
