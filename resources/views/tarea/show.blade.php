@@ -14,7 +14,10 @@
                             <span class="card-title">{{ __('Mostrar') }} Tarea</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary btn-sm" href="{{ route('tareas.index') }}"> {{ __('Atrás') }}</a>
+                            <a class="btn btn-success btn-sm"
+                               href="{{ route('tareas.edit', $tarea->id) }}"><i
+                                    class="fa fa-fw fa-edit"></i> {{ __('Actualizar') }}</a>
+                            <a class="btn btn-primary btn-sm" href="{{ url()->previous() }}"> {{ __('Atrás') }}</a>
                         </div>
                     </div>
 

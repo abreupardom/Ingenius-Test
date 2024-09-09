@@ -117,4 +117,4 @@ class ProyectoController extends Controller
 
         return $query->orderBy('id', 'desc')->paginate();
     }
-  }
+}

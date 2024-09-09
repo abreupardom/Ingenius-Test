@@ -22,7 +22,9 @@
         <div class="container">
             <a class="navbar-brand" href="{{ url('/home') }}">
                 {{--{{ config('app.name', 'Laravel') }}--}}
-                Gestión de tareas
+                <h1><i class="fa fa-tasks"></i>
+                Gestión de Proyectos y Tareas
+                </h1>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -42,13 +44,13 @@
                     @guest
                         @if (Route::has('login'))
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('Autenticarce') }}</a>
                             </li>
                         @endif
 
                         @if (Route::has('register'))
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                <a class="nav-link" href="{{ route('register') }}">{{ __('Registrarse') }}</a>
                             </li>
                         @endif
                     @else

@@ -16,8 +16,11 @@
                             <span class="card-title">{{ __('Mostrar') }} Proyecto</span>
                         </div>
                         <div class="float-right">
+                            <a class="btn btn-success btn-sm"
+                               href="{{ route('proyectos.edit', $proyecto->id) }}"><i
+                                    class="fa fa-fw fa-edit"></i> {{ __('Actualizar') }}</a>
                             <a class="btn btn-primary btn-sm"
-                               href="{{ route('proyectos.index') }}"> {{ __('Atrás') }}</a>
+                               href="{{  url()->previous() }}"> {{ __('Atrás') }}</a>
                         </div>
                     </div>
                     <div class="card-body bg-white">
@@ -81,8 +84,8 @@
                                 <td>{{ ++$i }}</td>
 
                                 <td>{{ $tarea->nombre }}</td>
-                                <td>{{ $tarea->estado }}</td>
-                                <td>{{ $tarea->prioridad }}</td>
+                                <td>{{ $tarea->estado }} {!! $tarea->iconoEstado() !!}</td>
+                                <td class="{{$tarea->colorPrioridad()}}">{{ $tarea->prioridad }}</td>
                                 <td>{{ $tarea->proyecto->nombre }}</td>
 
                                 <td>

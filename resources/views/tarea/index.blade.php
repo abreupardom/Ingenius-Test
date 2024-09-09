@@ -55,7 +55,7 @@
                                                 <option></option>
                                                 @foreach($tareas as $tarea )
                                                     <option
-                                                            value="{{$tarea->nombre}}" {{ $tarea->nombre == $nombre ? 'selected' : '' }}>{{$tarea->nombre}}</option>
+                                                        value="{{$tarea->nombre}}" {{ $tarea->nombre == $nombre ? 'selected' : '' }}>{{$tarea->nombre}}</option>
                                                 @endforeach
                                             </select>
                                         </th>
@@ -64,7 +64,7 @@
                                                 <option></option>
                                                 @foreach($tareas as $tarea )
                                                     <option
-                                                            value="{{$tarea->estado}}" {{ $tarea->estado == $estado ? 'selected' : '' }}>{{$tarea->estado}}</option>
+                                                        value="{{$tarea->estado}}" {{ $tarea->estado == $estado ? 'selected' : '' }}>{{$tarea->estado}}</option>
                                                 @endforeach
                                             </select>
                                         </th>
@@ -73,7 +73,7 @@
                                                 <option></option>
                                                 @foreach($tareas as $tarea )
                                                     <option
-                                                            value="{{$tarea->prioridad}}" {{ $tarea->prioridad == $prioridad ? 'selected' : '' }}>{{$tarea->prioridad}}</option>
+                                                        value="{{$tarea->prioridad}}" {{ $tarea->prioridad == $prioridad ? 'selected' : '' }}>{{$tarea->prioridad}}</option>
                                                 @endforeach
                                             </select></th>
                                         <th><select name="proyecto_id"
@@ -81,7 +81,7 @@
                                                 <option></option>
                                                 @foreach($tareas as $tarea )
                                                     <option
-                                                            value="{{$tarea->proyecto_id}}" {{ $tarea->proyecto_id == $proyecto_id ? 'selected' : '' }}>{{$tarea->proyecto->nombre}}</option>
+                                                        value="{{$tarea->proyecto_id}}" {{ $tarea->proyecto_id == $proyecto_id ? 'selected' : '' }}>{{$tarea->proyecto->nombre}}</option>
                                                 @endforeach
                                             </select>
 
@@ -96,8 +96,8 @@
                                         <td>{{ ++$i }}</td>
 
                                         <td>{{ $tarea->nombre }}</td>
-                                        <td>{{ $tarea->estado }}</td>
-                                        <td>{{ $tarea->prioridad }}</td>
+                                        <td>{{$tarea->estado}}  {!! $tarea->iconoEstado() !!}</td>
+                                        <td class="{{$tarea->colorPrioridad()}}">{{ $tarea->prioridad }}</td>
                                         <td><a class="btn btn-sm btn-outline-primary" data-bs-toggle="popover"
                                                data-bs-title="Detalles del proyecto"
                                                data-bs-trigger="hover"
@@ -112,15 +112,18 @@
                                         <td>
                                             @if(!$tarea->proyecto->archivado)
                                                 <form action="{{ route('tareas.destroy', $tarea->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary" data-bs-toggle="tooltip" data-bs-title="Mostrar detalles"
+                                                    <a class="btn btn-sm btn-primary" data-bs-toggle="tooltip"
+                                                       data-bs-title="Mostrar detalles"
                                                        href="{{ route('tareas.show', $tarea->id) }}"><i
-                                                                class="fa fa-fw fa-eye"></i> {{ __('Mostrar') }}</a>
-                                                    <a class="btn btn-sm btn-success" data-bs-toggle="tooltip" data-bs-title="Actualizar tarea"
+                                                            class="fa fa-fw fa-eye"></i> {{ __('Mostrar') }}</a>
+                                                    <a class="btn btn-sm btn-success" data-bs-toggle="tooltip"
+                                                       data-bs-title="Actualizar tarea"
                                                        href="{{ route('tareas.edit', $tarea->id) }}"><i
-                                                                class="fa fa-fw fa-edit"></i> {{ __('Actualizar') }}</a>
+                                                            class="fa fa-fw fa-edit"></i> {{ __('Actualizar') }}</a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm" data-bs-toggle="tooltip" data-bs-title="Eliminar tarea"
+                                                    <button type="submit" class="btn btn-danger btn-sm"
+                                                            data-bs-toggle="tooltip" data-bs-title="Eliminar tarea"
                                                             onclick="event.preventDefault(); confirm('Esta usted seguro de eliminar esta tarea?') ? this.closest('form').submit() : false;">
                                                         <i class="fa fa-fw fa-trash"></i> {{ __('Eliminar') }}</button>
                                                 </form>

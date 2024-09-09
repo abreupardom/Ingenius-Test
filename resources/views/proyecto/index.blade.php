@@ -68,7 +68,8 @@
                                                 @endforeach
                                             </select>
                                         </th>
-                                        <th></th>
+                                        <th>
+                                        </th>
                                         <th></th>
                                     </form>
                                 </tr>
@@ -86,15 +87,18 @@
                                         <td>
                                             <form action="{{ route('proyectos.destroy', $proyecto->id) }}"
                                                   method="POST">
-                                                <a class="btn btn-sm btn-primary" data-bs-toggle="tooltip" data-bs-title="Mostrar detalles"
+                                                <a class="btn btn-sm btn-primary" data-bs-toggle="tooltip"
+                                                   data-bs-title="Mostrar detalles"
                                                    href="{{ route('proyectos.show', $proyecto->id) }}"><i
                                                             class="fa fa-fw fa-eye"></i> {{ __('Mostrar') }}</a>
-                                                <a class="btn btn-sm btn-success" data-bs-toggle="tooltip" data-bs-title="Actualizar proyecto"
+                                                <a class="btn btn-sm btn-success" data-bs-toggle="tooltip"
+                                                   data-bs-title="Actualizar proyecto"
                                                    href="{{ route('proyectos.edit', $proyecto->id) }}"><i
                                                             class="fa fa-fw fa-edit"></i> {{ __('Actualizar') }}</a>
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="btn btn-danger btn-sm" data-bs-toggle="tooltip" data-bs-title="Eliminar proyecto"
+                                                <button type="submit" class="btn btn-danger btn-sm"
+                                                        data-bs-toggle="tooltip" data-bs-title="Eliminar proyecto"
                                                         onclick="event.preventDefault(); confirm('Esta usted seguro de eliminar este proyecto? De hacerlo se eliminarán todas las tareas asociadas a este.') ? this.closest('form').submit() : false;">
                                                     <i class="fa fa-fw fa-trash"></i> {{ __('Eliminar') }}</button>
                                             </form>

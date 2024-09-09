@@ -30,11 +30,15 @@ class TareaRequest extends FormRequest
             'nombre' => ['required', 'string','max:255', $this->validacioUnico()],
             'estado' => 'required|string',
             'prioridad' => 'required|string',
-            'proyecto_id' => 'required',
+            'proyecto_id' => 'required|integer',
         ];
 
     }
 
+    /**
+     * Mensajes personalizados
+     * @return string[]
+     */
     public function messages(): array
     {
         //mensajes personalizados de la validaciones
@@ -48,6 +52,7 @@ class TareaRequest extends FormRequest
             'nombre.string' => 'El nombre debe ser un texto',
             'estado.string' => 'El estado debe ser un texto',
             'prioridad.string' => 'El prioridad debe ser un texto',
+            'proyecto_id.integer' => 'El proyecto debe ser un número',
         ];
     }
 

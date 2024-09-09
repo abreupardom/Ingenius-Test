@@ -32,6 +32,10 @@ class ProyectoRequest extends FormRequest
         ];
     }
 
+    /**
+     * Mensajes personalizados
+     * @return string[]
+     */
     public function messages(): array
     {
         //mensajes personalizados de las validaciones
